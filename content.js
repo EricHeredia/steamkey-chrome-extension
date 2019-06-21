@@ -8,11 +8,11 @@ chrome.runtime.onMessage.addListener(
   }
 )
 
-var allKeys = document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g)
+const findKeyRE = /(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g
 
-if (document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g) != null) {
+if (document.body.innerHTML.match(findKeyRE) != null) {
   console.clear()
-  const match = document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g)
+  const match = document.body.innerHTML.match(findKeyRE)
   const lastIndex = match[match.length-1]
 
   chrome.runtime.sendMessage({"message": "key_found", "amount": match.length})
@@ -20,8 +20,6 @@ if (document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g) != 
   match.forEach((key) => {
     console.log(key)
   })
-  //lastIndex.select()
-  //lastIndex.execCommand("copy")
 } else {
   chrome.runtime.sendMessage({"message": "key_found", "amount": ""})
   console.clear()
