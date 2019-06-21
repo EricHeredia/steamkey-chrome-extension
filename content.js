@@ -1,16 +1,9 @@
-// Register here https://store.steampowered.com/account/registerkey
-
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
-      const match = document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g)
-      //const lastIndex = match[match.length-1]
-
-
       chrome.tabs.executeScript({
         file: 'getKeys.js'
       });
-      //chrome.runtime.sendMessage({"message": "open_new_tab", "url": lastIndex})
     }
   }
 )
