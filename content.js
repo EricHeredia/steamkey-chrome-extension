@@ -14,9 +14,6 @@ if (document.body.innerHTML.match(findKeyRE) != null) {
   const match = document.body.innerHTML.match(findKeyRE)
 
   chrome.runtime.sendMessage({"message": "key_found", "amount": match.length})
-
-  match.forEach((key) => {
-  })
 } else {
   chrome.runtime.sendMessage({"message": "key_found", "amount": ""})
 }
