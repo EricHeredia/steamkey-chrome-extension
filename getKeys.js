@@ -4,7 +4,7 @@ if (document.body.innerHTML.match(/(([A-Z]|[0-9]){5}-){2}([A-Z]|[0-9]){5}/g) != 
   document.head.innerHTML = ''
 
   document.body.innerHTML = ''
-
+  // fix all this later
   document.body.innerHTML = '<a style="color: #d80416"href=https://store.steampowered.com/account/registerkey?key='
                             +match[match.length-1]+
                             ' target="_blank"><li style="display: inline-block; font-size: 35px; font-weight: bold">'
